@@ -13,14 +13,12 @@ steps:
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
-    azureResourceManagerConnection: 'AVD Service Connection'
+    azureResourceManagerConnection: 'AVD Automatic Service Connection'
     subscriptionId: 'c4de060b-48a0-4945-a80b-38f9793053b0'
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'RG-CreatedbyDevOps'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://github.com/saxcodegit/TestDevops/blob/master/azure-pipelines.yml'
-    overrideParameters: '-projectName [TestingDevOps]'
+    csmFileLink: 'https://github.com/saxcodegit/TestDevops/blob/a5354e05e0435f0528b3485ae802e28d8a10ffc9/CreateWebApp/azuredeploy.json'
     deploymentMode: 'Incremental'
-    deploymentName: 'DeployPipelineTemplate'
 

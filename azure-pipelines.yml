@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'AVD Service Connection'
+    subscriptionId: 'c4de060b-48a0-4945-a80b-38f9793053b0'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'RG-CreatedbyDevOps'
+    location: 'West Europe'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://github.com/saxcodegit/TestDevops'
+    overrideParameters: '-projectName [TestingDevOps]'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
+

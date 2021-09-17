@@ -19,7 +19,7 @@ steps:
     resourceGroupName: 'RG-CreatedbyDevOps'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://github.com/saxcodegit/TestDevops'
+    csmFileLink: 'https://github.com/saxcodegit/TestDevops/blob/master/azure-pipelines.yml'
     overrideParameters: '-projectName [TestingDevOps]'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'

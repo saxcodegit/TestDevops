@@ -19,7 +19,7 @@ steps:
     resourceGroupName: 'RG-CreatedbyDevOps'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://raw.githubusercontent.com/saxcodegit/TestDevops/master/CreateWebApp/azuredeploy.json'
+    csmFileLink: 'https://raw.githubusercontent.com/saxcodegit/TestDevops/master/CreateWebApp/azuredeploy2.json'
     overrideParameters: '-projectname Test'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'

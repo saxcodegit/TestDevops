@@ -50,7 +50,6 @@
         }
       }
     },
-  ],
   "outputs": {
     "storageEndpoint": {
       "type": "object",

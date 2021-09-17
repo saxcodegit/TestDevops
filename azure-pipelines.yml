@@ -19,6 +19,6 @@ steps:
     resourceGroupName: 'RG-CreatedbyDevOps'
     location: 'West Europe'
     templateLocation: 'URL of the file'
-    csmFileLink: 'https://github.com/saxcodegit/TestDevops/blob/a5354e05e0435f0528b3485ae802e28d8a10ffc9/CreateWebApp/azuredeploy.json'
+    csmFileLink: 'https://github.com/saxcodegit/TestDevops/blob/master/CreateWebApp/azuredeploy.json'
     deploymentMode: 'Incremental'
 

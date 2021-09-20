@@ -18,7 +18,7 @@ steps:
     action: 'Create Or Update Resource Group'
     resourceGroupName: 'RG-CreatedbyDevOps'
     location: 'West Europe'
-    templateLocation: 'Linked artifact'
+    templateLocation: 'URL of the file'
     csmFile: 'https://raw.githubusercontent.com/saxcodegit/TestDevops/master/CreateWebApp/azuredeploy2.json'
     overrideParameters: '-TestType Standard_LRS'
     deploymentMode: 'Incremental'

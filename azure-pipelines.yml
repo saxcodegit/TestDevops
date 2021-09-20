@@ -20,5 +20,6 @@ steps:
     location: 'West Europe'
     templateLocation: 'Linked artifact'
     csmFile: 'https://raw.githubusercontent.com/saxcodegit/TestDevops/master/CreateWebApp/azuredeploy2.json'
+    overrideParameters: '-projectname Test'
     deploymentMode: 'Incremental'
     deploymentName: 'Test'

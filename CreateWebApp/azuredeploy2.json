@@ -1,60 +1,71 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "projectName": {
-      "type": "string",
-      "minLength": 3,
-      "maxLength": 11,
-      "metadata": {
-        "description": "Specify a project name that is used to generate resource names."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Specify a location for the resources."
-      }
-    },
-    "linuxFxVersion": {
-      "type": "string",
-      "defaultValue": "php|7.0",
-      "metadata": {
-        "description": "The Runtime stack of current web app"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(parameters('projectName'), uniqueString(resourceGroup().id))]",
-    "webAppName": "[concat(parameters('projectName'), 'WebApp')]",
-    "appServicePlanName": "[concat(parameters('projectName'), 'Plan')]"
-  },
-  "resources": [
-    {
-      "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-          "relativePath": "linkedStorageAccount.json"
-        },
-        "parameters": {
-          "storageAccountName": {
-            "value": "[variables('storageAccountName')]"
-          },
-          "location": {
-            "value": "[parameters('location')]"
-          }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "TestType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+            ]
         }
-      }
-    }    
-  ],
-  "outputs": {
-    "storageEndpoint": {
-      "type": "object",
-      "value": "[reference('linkedTemplate').outputs.storageEndpoint.value]"
+    },
+    "resources": [
+        {
+            "name": "[variables('TestName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [],
+            "tags": {
+                "displayName": "Test"
+            },
+            "properties": {
+                "accountType": "[parameters('TestType')]"
+            }
+        },
+        {
+            "name": "Network01",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [],
+            "tags": {
+                "displayName": "Network01"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('Network01Prefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('Network01Subnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('Network01Subnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('Network01Subnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('Network01Subnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "variables": {
+        "TestName": "[concat('Test', uniqueString(resourceGroup().id))]",
+        "Network01Prefix": "10.0.0.0/16",
+        "Network01Subnet1Name": "Subnet-1",
+        "Network01Subnet1Prefix": "10.0.0.0/24",
+        "Network01Subnet2Name": "Subnet-2",
+        "Network01Subnet2Prefix": "10.0.1.0/24"
     }
-  }
 }

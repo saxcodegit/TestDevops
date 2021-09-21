@@ -9,7 +9,7 @@
       "value": "TestCloud21##"
     },
     "dnsLabelPrefix": {
-      "value": "test.cloudy.com"
+      "value": ""
     },
     "publicIpName": {
       "value": "myPublicIP"

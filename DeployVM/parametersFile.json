@@ -9,7 +9,7 @@
       "value": "TestCloud21##"
     },
     "dnsLabelPrefix": {
-      "value": "simple-vm-eftntztmtxluy.eastus.cloudapp.azure.com"
+      "value": "simplevmeftntztmtxluy"
     },
     "publicIpName": {
       "value": "myPublicIP"

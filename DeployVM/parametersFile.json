@@ -9,7 +9,7 @@
       "value": "TestCloud21##"
     },
     "dnsLabelPrefix": {
-      "value": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id, parameters('vmName'))))]"
+      "value": "simple-vm-eftntztmtxluy.eastus.cloudapp.azure.com"
     },
     "publicIpName": {
       "value": "myPublicIP"

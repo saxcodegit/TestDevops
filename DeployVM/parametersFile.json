@@ -9,7 +9,7 @@
       "value": "TestCloud21##"
     },
     "dnsLabelPrefix": {
-      "value": "toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id, parameters('vmName'))))]"
+      "value": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id, parameters('vmName'))))]"
     },
     "publicIpName": {
       "value": "myPublicIP"

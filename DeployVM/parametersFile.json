@@ -30,7 +30,7 @@
       "value": "westeurope"
     },
     "vmName": {
-      "value": "simple-vm"
+      "value": "AZ-VM01"
     }
   }
 }
